@@ -43,25 +43,26 @@ $result = $conn->query($sql);
 
     <?php
     if ($result->num_rows > 0) {
-      while($row = $result->fetch_assoc()) {
+      while ($row = $result->fetch_assoc()) {
         echo "<tr>";
-        echo "<td>" . htmlspecialchars($row['id']) . "</td>";
-        echo "<td>" . htmlspecialchars($row['name']) . "</td>";
-        echo "<td>$" . htmlspecialchars($row['price']) . "</td>";
-        echo "<td>" . htmlspecialchars($row['quantity']) . "</td>";
-        echo "<td>" . htmlspecialchars($row['category']) . "</td>";
-        echo "<td>" . htmlspecialchars($row['brand']) . "</td>";
-        echo "<td>" . htmlspecialchars($row['size']) . "</td>";
-        echo "<td>$" . htmlspecialchars($row['price_sold']) . "</td>";
-        echo "<td>$" . htmlspecialchars($row['shipping_price']) . "</td>";
-        echo "<td>" . htmlspecialchars($row['date_sold']) . "</td>";
-        echo "<td>" . htmlspecialchars($row['created_at']) . "</td>";
+        echo "<td>" . htmlspecialchars($row['id'] ?? '') . "</td>";
+        echo "<td>" . htmlspecialchars($row['name'] ?? '') . "</td>";
+        echo "<td>$" . htmlspecialchars($row['price'] ?? '') . "</td>";
+        echo "<td>" . htmlspecialchars($row['quantity'] ?? '') . "</td>";
+        echo "<td>" . htmlspecialchars($row['category'] ?? '') . "</td>";
+        echo "<td>" . htmlspecialchars($row['brand'] ?? '') . "</td>";
+        echo "<td>" . htmlspecialchars($row['size'] ?? '') . "</td>";
+        echo "<td>$" . htmlspecialchars($row['price_sold'] ?? '') . "</td>";
+        echo "<td>$" . htmlspecialchars($row['shipping_price'] ?? '') . "</td>";
+        echo "<td>" . htmlspecialchars($row['date_sold'] ?? '') . "</td>";
+        echo "<td>" . htmlspecialchars($row['created_at'] ?? '') . "</td>";
         echo "</tr>";
       }
     } else {
       echo "<tr><td colspan='11'>No products found.</td></tr>";
     }
     ?>
+
   </table>
 
 </body>
