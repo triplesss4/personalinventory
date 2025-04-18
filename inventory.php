@@ -24,15 +24,12 @@ $result = $conn->query($sql);
 <h1>Available Inventory</h1>
 
 <nav>
-  <a href="index.php">Home</a> |
-  <a href="inventory.php">Available Inventory</a> |
-  <a href="inventory_sold.php">Sold Inventory</a> |
-  <a href="add.php">Add Product</a> |
-  <a href="search.php">Search Product</a> |
-  <a href="modify.php">Modify Product</a>
+  <a href="index.php">Home</a> 
+  <a href="add.php">Add Product</a> 
+  <a href="search.php">Search Product</a> 
+  <a href="inventory.php">Available Inventory</a> 
+  <a href="inventory_sold.php">Sold Inventory</a>
 </nav>
-
-<h2>Sort Available Items</h2>
 
 <form method="GET" action="inventory.php">
   <label for="sort">Sort by Created Date:</label>
@@ -42,8 +39,6 @@ $result = $conn->query($sql);
   </select>
   <button type="submit">Apply</button>
 </form>
-
-<h2>Available Products</h2>
 
 <table border="1" cellpadding="10" cellspacing="0">
   <tr>
