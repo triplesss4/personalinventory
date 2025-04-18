@@ -1,8 +1,14 @@
 <?php
 include 'db.php'; // Connect to the database
 
-// Fetch all items from the 'items' table that are sold ordered by most recently sold to oldest sold
-$sql = "SELECT * FROM items WHERE price_sold IS NOT NULL ORDER BY date_sold DESC";
+// Handle sorting option
+$sortOrder = "DESC"; // Default: Newest first
+if (isset($_GET['sort']) && $_GET['sort'] === 'asc') {
+  $sortOrder = "ASC"; // Oldest first if selected
+}
+
+// Fetch only sold items, sorted by date_sold
+$sql = "SELECT * FROM items WHERE price_sold IS NOT NULL ORDER BY date_sold $sortOrder";
 $result = $conn->query($sql);
 ?>
 
@@ -10,21 +16,34 @@ $result = $conn->query($sql);
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Inventory List</title>
+  <title>Sold Inventory</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <h1>Inventory Management</h1>
+  <h1>Sold Inventory</h1>
 
   <nav>
     <a href="index.php">Home</a> |
+    <a href="inventory.php">Available Inventory</a> |
+    <a href="inventory_sold.php">Sold Inventory</a> |
     <a href="add.php">Add Product</a> |
     <a href="search.php">Search Product</a> |
     <a href="modify.php">Modify Product</a>
   </nav>
 
-  <h2>All Products</h2>
+  <h2>Sort Sold Items</h2>
+
+  <form method="GET" action="inventory_sold.php">
+    <label for="sort">Sort by Date Sold:</label>
+    <select name="sort" id="sort">
+      <option value="desc" <?php if ($sortOrder == 'DESC') echo 'selected'; ?>>Newest First</option>
+      <option value="asc" <?php if ($sortOrder == 'ASC') echo 'selected'; ?>>Oldest First</option>
+    </select>
+    <button type="submit">Apply</button>
+  </form>
+
+  <h2>Sold Products</h2>
 
   <table border="1" cellpadding="10" cellspacing="0">
     <tr>
@@ -59,7 +78,7 @@ $result = $conn->query($sql);
         echo "</tr>";
       }
     } else {
-      echo "<tr><td colspan='11'>No products found.</td></tr>";
+      echo "<tr><td colspan='11'>No sold products found.</td></tr>";
     }
     ?>
 
