@@ -15,16 +15,16 @@ if (isset($_GET['id'])) {
 
 // Step 2: Handle form submission to update the item
 if (isset($_POST['update'])) {
-    $id = $_POST['id']; // Hidden field
+    $id = $_POST['id'];
     $name = $_POST['name'];
     $price = $_POST['price'];
     $quantity = $_POST['quantity'];
     $category = $_POST['category'];
     $brand = $_POST['brand'];
     $size = $_POST['size'];
-    $price_sold = $_POST['price_sold'];
-    $shipping_price = $_POST['shipping_price'];
-    $date_sold = $_POST['date_sold'];
+    $price_sold = $_POST['price_sold'] !== '' ? $_POST['price_sold'] : null;
+    $shipping_price = $_POST['shipping_price'] !== '' ? $_POST['shipping_price'] : null;
+    $date_sold = $_POST['date_sold'] !== '' ? $_POST['date_sold'] : null;
 
     $sql = "UPDATE items SET 
             name = ?, price = ?, quantity = ?, category = ?, brand = ?, size = ?, 
@@ -43,7 +43,26 @@ if (isset($_POST['update'])) {
     }
 
     $conn->close();
-    exit(); // Stop script after updating
+    exit();
+}
+
+// Step 3: Handle delete request
+if (isset($_POST['delete'])) {
+    $id = $_POST['id'];
+
+    $sql = "DELETE FROM items WHERE id = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $id);
+
+    if ($stmt->execute()) {
+        header("Location: inventory.php?deleted=1");
+        exit();
+    } else {
+        echo "Error deleting item: " . $stmt->error;
+    }
+
+    $conn->close();
+    exit();
 }
 ?>
 
@@ -80,6 +99,7 @@ if (isset($_POST['update'])) {
         <input type="date" name="date_sold" value="<?php echo htmlspecialchars($item['date_sold']); ?>"><br>
 
         <button type="submit" name="update">Update Item</button>
+        <button type="submit" name="delete" style="background-color: red; color: white;">Delete Item</button>
     </form>
 <?php else: ?>
     <p>No item selected. Please go back and select an item to modify.</p>
