@@ -10,11 +10,11 @@
 <h1>Add New Product</h1>
 
 <nav>
-  <a href="index.php">Home</a> |
-  <a href="inventory.php">Available Inventory</a> |
-  <a href="inventory_sold.php">Sold Inventory</a> |
-  <a href="search.php">Search Product</a>
-</nav>
+    <a href="search.php">Search Product</a> 
+    <a href="add.php">Add Product</a> 
+    <a href="inventory.php">Available Inventory</a> 
+    <a href="sold_inventory.php">Sold Inventory</a> 
+  </nav>
 
 <form action="form.php" method="POST">
   <input type="text" name="name" placeholder="Item Name" required><br>
