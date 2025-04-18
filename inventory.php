@@ -31,6 +31,7 @@ $result = $conn->query($sql);
   <a href="inventory_sold.php">Sold Inventory</a>
 </nav>
 
+  
 <form method="GET" action="inventory.php">
   <label for="sort">Sort by Created Date:</label>
   <select name="sort" id="sort">
@@ -40,6 +41,7 @@ $result = $conn->query($sql);
   <button type="submit">Apply</button>
 </form>
 
+  
 <table border="1" cellpadding="10" cellspacing="0">
   <tr>
     <th>ID</th>
