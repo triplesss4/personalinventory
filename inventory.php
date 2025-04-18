@@ -1,6 +1,12 @@
 <?php
 include 'db.php'; // Connect to the database
 
+// Check for success message
+$updateMessage = "";
+if (isset($_GET['updated']) && $_GET['updated'] == 1) {
+  $updateMessage = "✅ Item updated successfully!";
+}
+
 // Handle sorting option
 $sortOrder = "DESC"; // Default: Newest first
 if (isset($_GET['sort']) && $_GET['sort'] === 'asc') {
