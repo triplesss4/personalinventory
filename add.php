@@ -25,7 +25,7 @@
   <input type="text" name="size" placeholder="Size" required><br>
   <input type="number" step="0.01" name="price_sold" placeholder="Price Sold"><br>
   <input type="number" step="0.01" name="shipping_price" placeholder="Shipping Price"><br>
-  <input type="date" name="date_sold"><br>
+  <input type="date" name="date_sold" placeholder="Date Sold"><br>
 
   <button type="submit" name="add">Add Product</button>
 </form>
