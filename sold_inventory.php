@@ -28,6 +28,7 @@ $result = $conn->query($sql);
     <a href="search.php">Search Product</a> 
     <a href="add.php">Add Product</a> 
     <a href="inventory.php">Available Inventory</a> 
+    <a href="sold_inventory.php">Sold Inventory</a>
   </nav>
 
   <form method="GET" action="inventory_sold.php">
