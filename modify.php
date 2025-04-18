@@ -105,5 +105,19 @@ if (isset($_POST['delete'])) {
     <p>No item selected. Please go back and select an item to modify.</p>
 <?php endif; ?>
 
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const deleteButton = document.querySelector('button[name="delete"]');
+    if (deleteButton) {
+      deleteButton.addEventListener('click', function(event) {
+        const confirmed = confirm('⚠️ Are you sure you want to delete this item? This action cannot be undone.');
+        if (!confirmed) {
+          event.preventDefault(); // Cancel the form submission
+        }
+      });
+    }
+  });
+</script>
+
 </body>
 </html>
