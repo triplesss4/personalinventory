@@ -36,7 +36,8 @@ if (isset($_POST['update'])) {
         $name, $price, $quantity, $category, $brand, $size, $price_sold, $shipping_price, $date_sold, $id);
 
     if ($stmt->execute()) {
-        echo "Item updated successfully! <a href='inventory.php'>Go back to Inventory</a>";
+        header("Location: inventory.php?updated=1");
+        exit();
     } else {
         echo "Error updating item: " . $stmt->error;
     }
@@ -58,11 +59,10 @@ if (isset($_POST['update'])) {
 <h1>Modify Item</h1>
 
 <nav>
-  <a href="index.php">Home</a> |
-  <a href="inventory.php">Available Inventory</a> |
-  <a href="inventory_sold.php">Sold Inventory</a> |
-  <a href="add.php">Add Product</a> |
-  <a href="search.php">Search Product</a>
+    <a href="search.php">Search Product</a> 
+    <a href="add.php">Add Product</a> 
+    <a href="inventory.php">View Available Inventory</a> 
+    <a href="inventory_sold.php">View Sold Inventory</a> 
 </nav>
 
 <?php if ($item): ?>
