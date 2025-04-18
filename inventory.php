@@ -25,10 +25,10 @@ $result = $conn->query($sql);
 
 <nav>
   <a href="index.php">Home</a> 
-  <a href="add.php">Add Product</a> 
   <a href="search.php">Search Product</a> 
+  <a href="add.php">Add Product</a> 
   <a href="inventory.php">Available Inventory</a> 
-  <a href="inventory_sold.php">Sold Inventory</a>
+  <a href="sold_inventory.php">Sold Inventory</a>
 </nav>
 
   
