@@ -28,10 +28,7 @@ $result = $conn->query($sql);
     <a href="search.php">Search Product</a> 
     <a href="add.php">Add Product</a> 
     <a href="inventory.php">Available Inventory</a> 
-    <a href="inventory_sold.php">Sold Inventory</a> 
   </nav>
-
-  <h2>Sort Sold Items</h2>
 
   <form method="GET" action="inventory_sold.php">
     <label for="sort">Sort by Date Sold:</label>
@@ -41,8 +38,6 @@ $result = $conn->query($sql);
     </select>
     <button type="submit">Apply</button>
   </form>
-
-  <h2>Sold Products</h2>
 
   <table border="1" cellpadding="10" cellspacing="0">
     <tr>
