@@ -1,8 +1,8 @@
 <?php
 include 'db.php'; // Connect to the database
 
-// Fetch all items from the 'items' table
-$sql = "SELECT * FROM items";
+// Fetch all items from the 'items' table that are not sold
+$sql = "SELECT * FROM items WHERE price_sold IS NULL";
 $result = $conn->query($sql);
 ?>
 
