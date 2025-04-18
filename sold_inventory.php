@@ -1,8 +1,8 @@
 <?php
 include 'db.php'; // Connect to the database
 
-// Fetch all items from the 'items' table that are sold
-$sql = "SELECT * FROM items WHERE price_sold IS NOT NULL";
+// Fetch all items from the 'items' table that are sold ordered by most recently sold to oldest sold
+$sql = "SELECT * FROM items WHERE price_sold IS NOT NULL ORDER BY date_sold DESC";
 $result = $conn->query($sql);
 ?>
 
