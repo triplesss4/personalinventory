@@ -4,7 +4,11 @@ include 'db.php'; // Connect to the database
 // Check for success message
 $updateMessage = "";
 if (isset($_GET['updated']) && $_GET['updated'] == 1) {
-  $updateMessage = "✅ Item updated successfully!";
+  $updateMessage = "Item updated successfully!";
+}
+
+if (isset($_GET['deleted']) && $_GET['deleted'] == 1) {
+  $updateMessage = "Item deleted successfully!";
 }
 
 // Handle sorting option
