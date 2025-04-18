@@ -24,12 +24,14 @@ $result = $conn->query($sql);
   <h1>Available Inventory</h1>
 
   <nav>
-    <a href="index.php">Home</a> |
-    <a href="inventory.php">Available Inventory</a> |
-    <a href="inventory_sold.php">Sold Inventory</a> |
-    <a href="add.php">Add Product</a> |
-    <a href="search.php">Search Product</a> |
-    <a href="modify.php">Modify Product</a>
+    <a href="index.php">Home</a> 
+    <a href="search.php">Search Product</a> 
+    <a href="add.php">Add Product</a> 
+    <a href="inventory.php">View Available Inventory</a> 
+    <a href="inventory_sold.php">View Sold Inventory</a> 
+    <a href="add.php">Add Product</a> 
+
+
   </nav>
 
   <h2>Sort Available Items</h2>
