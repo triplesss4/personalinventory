@@ -33,6 +33,10 @@ $result = $conn->query($sql);
 
 <h1>Available Inventory</h1>
 
+<?php if (!empty($updateMessage)): ?>
+  <p style="color: green; font-weight: bold;"><?php echo $updateMessage; ?></p>
+<?php endif; ?>
+
 <nav>
   <a href="index.php">Home</a> 
   <a href="search.php">Search Product</a> 
